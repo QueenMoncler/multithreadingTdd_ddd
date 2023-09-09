@@ -19,4 +19,9 @@ public class PhoneBook {
                 .findFirst()
                 .get();
     }
+
+    public long findByName(String name) {
+        return phoneBook.get(name);
+    }
+
 }

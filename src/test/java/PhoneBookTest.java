@@ -21,4 +21,13 @@ public class PhoneBookTest {
         phoneBook.add(name2, number2);
         assertTrue("Error " + number1,  phoneBook.findByNumber(number1)!=null);
     }
+
+
+    @Test
+    public void testFindByName(){
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add(name1, number1);
+        phoneBook.add(name2, number2);
+        assertTrue("Error " + name1,  phoneBook.findByName(name1)!=0);
+    }
 }
