@@ -3,12 +3,22 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class PhoneBookTest {
+    public String name1 = "AAA";
+    public String name2 = "BBB";
+    public long number1 = 8_926_789_00_98L;
+    public long number2 = 8_926_709_00_90L;
     @Test
     public void testAdd(){
         PhoneBook phoneBook = new PhoneBook();
-        String name = "test";
-        long number = 8_926_789_00_98L;
-        int answ = phoneBook.add(name, number);
-        assertTrue("Не может быть пустым! " + name + " и " + number, answ != 0);
+        int answ = phoneBook.add(name1, number1);
+        assertTrue("Error " + name1 + " и " + number1, phoneBook.add(name2, number2) != answ);
+    }
+
+    @Test
+    public void testFindByNumber(){
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add(name1, number1);
+        phoneBook.add(name2, number2);
+        assertTrue("Error " + number1,  phoneBook.findByNumber(number1)!=null);
     }
 }
